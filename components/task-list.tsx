@@ -74,13 +74,13 @@ export function TaskList({ projectId }: { projectId: string }) {
     return (
         <div className="flex-1 overflow-hidden">
             <ScrollArea className="h-full pr-2">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 items-center">
                     {data
                         .sort((t1, t2) => taskSort(t1, t2))
                         .map((t) => (
-                            <div className="w-full p-2 rounded border flex flex-col gap-1" key={t.id}>
-                                <div className="flex gap-5 items-center">
-                                    <h3 className="text-lg font-bold">{t.title}</h3>
+                            <div className="w-[70vw] sm:w-full p-2 rounded border flex flex-col gap-1" key={t.id}>
+                                <div className="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-5 items-center">
+                                    <h3 className="w-full text-lg font-bold">{t.title}</h3>
                                     <Badge className={cn('text-sm font-bold', t.status === 'done' ? 'bg-green-700' : '')} variant={badgeMap[t.status]}>
                                         {t.status.toUpperCase().replace('_', ' ')}
                                     </Badge>
@@ -127,7 +127,7 @@ export function TaskList({ projectId }: { projectId: string }) {
                                         <EditTaskDialog taskId={t.id} projectId={projectId} />
                                     </Dialog>
                                 </div>
-                                <p className="text-xs font-mono text-muted-foreground">{t.id}</p>
+                                <p className="text-[0.6rem] sm:text-xs font-mono text-muted-foreground">{t.id}</p>
                                 <Separator />
                                 {t.description ? (
                                     <p className="text-sm p-1">{t.description}</p>
@@ -138,7 +138,7 @@ export function TaskList({ projectId }: { projectId: string }) {
                         ))}
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button className="w-full h-16 border-dashed italic" variant="outline">
+                            <Button className="w-[70vw] sm:w-full h-16 border-dashed italic" variant="outline">
                                 Create task
                             </Button>
                         </DialogTrigger>

@@ -40,7 +40,7 @@ export function ProjectList({currentProjectId}: {currentProjectId?: string}) {
     return (
         <div className="flex-1 overflow-hidden">
             <ScrollArea className="h-full pr-2">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 items-center">
                     {data
                         .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
                         .map((p, index) => {
@@ -48,7 +48,7 @@ export function ProjectList({currentProjectId}: {currentProjectId?: string}) {
                         })}
                     <Dialog>
                         <DialogTrigger asChild>
-                            <Button className="w-full h-16 border-dashed italic" variant="outline">
+                            <Button className="w-[70vw] sm:w-full h-16 border-dashed italic" variant="outline">
                                 Create project
                             </Button>
                         </DialogTrigger>

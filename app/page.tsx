@@ -34,13 +34,13 @@ export default function Home() {
   return (
     <main className="h-screen flex flex-col items-center justify-center gap-2 p-8 sm:p-20">
       <div className="flex justify-between items-center w-full p-4 bg-background/80 rounded border">
-        <h1 className="text-4xl text-foreground font-bold">
+        <h1 className="text-xl sm:text-4xl text-foreground font-bold">
           Proto Takehome UI
         </h1>
         <UserButton />
       </div>
-      <div className="flex gap-2 w-full grow overflow-hidden">
-        <section className="flex flex-col w-1/3 h-full bg-background/80 rounded border p-4 gap-2">
+      <div className="flex flex-col sm:flex-row gap-2 w-full grow overflow-hidden">
+        <section className="flex flex-col sm:w-1/3 h-1/3 sm:h-full bg-background/80 rounded border p-4 gap-2">
           <h2 className="text-2xl text-[#00b4db] font-bold">Projects</h2>
           <Suspense
             fallback={
@@ -55,7 +55,7 @@ export default function Home() {
             <SuspendedProjectList />
           </Suspense>
         </section>
-        <section className="flex flex-col flex-1 h-full bg-background/80 rounded border p-4 gap-2">
+        <section className="flex flex-col flex-1 h-[calc(calc(2/3_*_100%)_-_0.5rem)] sm:h-full bg-background/80 rounded border p-4 gap-2">
           <h2 className="text-2xl text-[#00b4db] font-bold">Tasks</h2>
           <Suspense
             fallback={

@@ -20,7 +20,7 @@ export default function ProjectListItem({ active, project }: { active: boolean; 
     if (error) return <div className="h-16 border-1 w-full flex items-center justify-center font-mono">Error loading project {project.id}</div>;
 
     return (
-        <Button asChild variant={active ? 'default' : 'outline'} className="h-auto border-1">
+        <Button asChild variant={active ? 'default' : 'outline'} className="h-auto border-1 w-[70vw] sm:w-full">
             <Link href={`/?p=${project.id}`}>
                 <div className="flex flex-col w-full items-start">
                     <div className="flex items-center gap-2 h-8 w-full">
@@ -54,7 +54,7 @@ export default function ProjectListItem({ active, project }: { active: boolean; 
                             <EditProjectDialog projectId={project.id} />
                         </Dialog>
                     </div>
-                    <p className="text-xs font-mono text-muted-foreground">{project.id}</p>
+                    <p className="text-[0.6rem] sm:text-xs font-mono text-muted-foreground">{project.id}</p>
                     <Separator className="my-2" />
                     {project.description ? (
                         <p className="text-sm p-1">{project.description}</p>
