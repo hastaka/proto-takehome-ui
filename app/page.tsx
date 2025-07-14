@@ -1,3 +1,4 @@
+import { ProjectList } from '@/components/project-list';
 import { UserButton } from '@clerk/nextjs';
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
             <div className="flex gap-2 w-full grow">
                 <section className="h-full bg-black/80 rounded border border-black p-4 flex flex-col gap-2">
                     <h2 className="text-2xl text-[#00b4db] font-bold">Projects</h2>
+                    <ProjectList />
                 </section>
                 <section className="h-full grow bg-black/80 rounded border border-black p-4 flex flex-col gap-2">
                     <h2 className="text-2xl text-[#00b4db] font-bold">Tasks</h2>
