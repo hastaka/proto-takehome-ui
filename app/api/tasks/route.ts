@@ -1,5 +1,6 @@
 export async function GET() {
     const res = await fetch('https://proto-takehome.onrender.com/tasks');
+    if (!res.ok) throw new Error('Failed to fetch');
     const data = await res.json();
     return new Response(JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' },
@@ -15,6 +16,7 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify(body),
     });
+    if (!res.ok) throw new Error('Failed to fetch');
     const data = await res.json();
     return new Response(JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' },
