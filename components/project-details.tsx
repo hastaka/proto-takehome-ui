@@ -8,8 +8,8 @@ import { Button } from './ui/button';
 export function ProjectDetails({ projectId }: { projectId: string }) {
     const { data, isLoading, error } = useProject(projectId);
 
-    if (isLoading || !data) return <div>Loading...</div>;
-    if (error) return <div>Error loading users</div>;
+    if (isLoading || !data) return <div className='w-full h-full italic flex items-center justify-center'>Loading...</div>;
+    if (error) return <div className='w-full h-full italic flex items-center justify-center'>Error loading project!</div>;
 
     return (
         <div className="flex-1 overflow-hidden grid grid-cols-4 gap-2">
