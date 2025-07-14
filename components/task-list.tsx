@@ -106,6 +106,7 @@ export function TaskList({ projectId }: { projectId: string }) {
                             )}
                         </div>
                     ))}
+                    <Dialog><DialogTrigger asChild><Button className="w-full h-16" variant="outline">Create task</Button></DialogTrigger><EditTaskDialog create projectId={projectId} /></Dialog>
                 </div>
             </ScrollArea>
         </div>

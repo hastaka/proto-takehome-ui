@@ -5,8 +5,6 @@ import { Label } from '@/components/ui/label';
 import useTask from '@/hooks/use-task';
 import { Textarea } from './ui/textarea';
 import { useEffect, useState } from 'react';
-import { Switch } from './ui/switch';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible';
 import { X } from 'lucide-react';
 import { useUpdateTask } from '@/hooks/use-update-task';
 import { useCreateTask } from '@/hooks/use-create-task';
@@ -18,9 +16,9 @@ interface EditTaskDialogProps {
 }
 export function EditTaskDialog({ create, taskId, projectId }: EditTaskDialogProps) {
     const { data, isLoading, error } = useTask(taskId);
-    const [title, setTitle] = useState<string>();
-    const [description, setDescription] = useState<string>();
-    const [dueDate, setDueDate] = useState<string>();
+    const [title, setTitle] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+    const [dueDate, setDueDate] = useState<string|undefined>("");
     const updateTask = useUpdateTask(projectId);
     const createTask = useCreateTask(projectId);
 
@@ -102,7 +100,7 @@ export function EditTaskDialog({ create, taskId, projectId }: EditTaskDialogProp
                             type="button"
                             id="save"
                             onClick={(e) => {
-                                if (create) createTask.mutate({ project_id: projectId, title:title ?? 'Untitled task', description, due_date: dueDate, status: 'todo' });
+                                if (create) createTask.mutate({ project_id: projectId, title:title ?? 'Untitled task', description, due_date: dueDate != '' ? dueDate : undefined, status: 'todo' });
                                 if (taskId) updateTask.mutate({ taskId, changes: { title, description, due_date: dueDate ?? '' } });
                             }}
                         >
