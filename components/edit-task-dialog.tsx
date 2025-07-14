@@ -100,7 +100,7 @@ export function EditTaskDialog({ create, taskId, projectId }: EditTaskDialogProp
                             type="button"
                             id="save"
                             onClick={(e) => {
-                                if (create) createTask.mutate({ project_id: projectId, title:title ?? 'Untitled task', description, due_date: dueDate != '' ? dueDate : undefined, status: 'todo' });
+                                if (create) createTask.mutate({ project_id: projectId, title:title != '' ? title : 'Untitled task', description, due_date: dueDate != '' ? dueDate : undefined, status: 'todo' });
                                 if (taskId) updateTask.mutate({ taskId, changes: { title, description, due_date: dueDate ?? '' } });
                             }}
                         >
