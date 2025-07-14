@@ -1,7 +1,13 @@
+'use client';
+
+import { ProjectDetails } from '@/components/project-details';
 import { ProjectList } from '@/components/project-list';
 import { UserButton } from '@clerk/nextjs';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
+    const searchParams = useSearchParams();
+    const projectId = searchParams.get('p');
     return (
         <main className="h-full flex flex-col items-center justify-center gap-2">
             <div className="flex justify-between items-center w-full p-4 bg-background/80 rounded border">
@@ -13,15 +19,18 @@ export default function Home() {
                     <h2 className="text-2xl text-[#00b4db] font-bold">Projects</h2>
                     <ProjectList />
                 </section>
-                <div className='flex flex-col flex-1 h-full gap-2'>
-                <section className="flex flex-col bg-background/80 rounded border p-4 gap-2">
-                    <h2 className="text-2xl text-[#00b4db] font-bold">Project Details</h2>
-                    <ProjectDetails />
-                </section>
-                <section className="flex flex-col flex-1 h-full bg-background/80 rounded border p-4 gap-2">
-                    <h2 className="text-2xl text-[#00b4db] font-bold">Tasks</h2>
-                </section>
-                  
+                <div className="flex flex-col flex-1 h-full gap-2">
+                    <section className="flex flex-col bg-background/80 rounded border p-4 gap-2">
+                        <h2 className="text-2xl text-[#00b4db] font-bold">Project Details</h2>
+                        {projectId ? (
+                            <ProjectDetails projectId={projectId} key={projectId} />
+                        ) : (
+                            <span className="w-full h-10 flex items-center justify-center">Select a project</span>
+                        )}
+                    </section>
+                    <section className="flex flex-col flex-1 h-full bg-background/80 rounded border p-4 gap-2">
+                        <h2 className="text-2xl text-[#00b4db] font-bold">Tasks</h2>
+                    </section>
                 </div>
             </div>
         </main>

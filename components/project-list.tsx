@@ -1,5 +1,5 @@
 'use client';
-import { useProjects } from '@/hooks/use-projects';
+import useProjects from '@/hooks/use-projects';
 import { ScrollArea } from './ui/scroll-area';
 import { useSearchParams } from 'next/navigation';
 import ProjectListItem from './project-list-item';

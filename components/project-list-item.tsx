@@ -1,7 +1,7 @@
 import { Project } from '@/lib/types';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { useProjectTasks } from '@/hooks/use-projects';
+import useProjectTasks from '@/hooks/use-project-tasks';
 import { Skeleton } from './ui/skeleton';
 
 export default function ProjectListItem({ active, project }: { active:boolean; project: Project }) {
