@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Manrope, Space_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const sans = Manrope({
     variable: '--font-sans',
@@ -25,7 +26,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={`${sans.variable} ${mono.variable} antialiased w-full h-screen bg-gradient-to-br from-[#00b4db] to-[#0083b0] p-8 sm:p-20`}>
                 <Providers>{children}</Providers>
             </body>
