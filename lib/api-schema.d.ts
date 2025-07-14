@@ -191,7 +191,7 @@ export interface components {
              * @description Due date for the task (ISO 8601)
              * @example 2025-08-01T00:00:00Z
              */
-            due_date?: string;
+            due_date?: string|null;
         };
     };
     responses: never;
