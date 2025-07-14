@@ -3,8 +3,8 @@ import { UserButton } from '@clerk/nextjs';
 
 export default function Home() {
     return (
-        <main className="h-full flex flex-col items-center justify-center">
-            <div className="flex justify-between items-center w-full p-2">
+        <main className="h-full flex flex-col items-center justify-center gap-2">
+            <div className="flex justify-between items-center w-full p-4 bg-background/80 rounded border">
                 <h1 className="text-4xl text-foreground font-bold">Proto Takehome UI</h1>
                 <UserButton />
             </div>
@@ -13,9 +13,16 @@ export default function Home() {
                     <h2 className="text-2xl text-[#00b4db] font-bold">Projects</h2>
                     <ProjectList />
                 </section>
+                <div className='flex flex-col flex-1 h-full gap-2'>
+                <section className="flex flex-col bg-background/80 rounded border p-4 gap-2">
+                    <h2 className="text-2xl text-[#00b4db] font-bold">Project Details</h2>
+                    <ProjectDetails />
+                </section>
                 <section className="flex flex-col flex-1 h-full bg-background/80 rounded border p-4 gap-2">
                     <h2 className="text-2xl text-[#00b4db] font-bold">Tasks</h2>
                 </section>
+                  
+                </div>
             </div>
         </main>
     );
