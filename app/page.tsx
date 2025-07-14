@@ -11,12 +11,12 @@ export default function Home() {
     const searchParams = useSearchParams();
     const projectId = searchParams.get('p');
     return (
-        <main className="h-full flex flex-col items-center justify-center gap-2 p-8 sm:p-20">
+        <main className="h-screen flex flex-col items-center justify-center gap-2 p-8 sm:p-20">
             <div className="flex justify-between items-center w-full p-4 bg-background/80 rounded border">
                 <h1 className="text-4xl text-foreground font-bold">Proto Takehome UI</h1>
                 <UserButton />
             </div>
-            <div className="flex gap-2 w-full h-full">
+            <div className="flex gap-2 w-full grow overflow-hidden">
                 <section className="flex flex-col w-1/3 h-full bg-background/80 rounded border p-4 gap-2">
                     <h2 className="text-2xl text-[#00b4db] font-bold">Projects</h2>
                     <ProjectList />
