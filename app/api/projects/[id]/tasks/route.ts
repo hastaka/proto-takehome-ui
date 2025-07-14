@@ -2,7 +2,8 @@
 
 import { NextRequest } from 'next/server';
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const { id } = params;
     const res = await fetch(`https://proto-takehome.onrender.com/projects/${id}/tasks`);
     const data = await res.json();

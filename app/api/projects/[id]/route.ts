@@ -2,7 +2,8 @@
 
 import { NextRequest } from 'next/server';
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const { id } = params;
     const res = await fetch(`https://proto-takehome.onrender.com/projects/${id}`);
     const data = await res.json();
@@ -12,7 +13,8 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
     });
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const { id } = params;
     const res = await fetch(`https://proto-takehome.onrender.com/projects/${id}`, { method: 'DELETE' });
     const data = await res.json();
@@ -22,7 +24,8 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
     });
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, props: { params: Promise<{ id: string }> }) {
+    const params = await props.params;
     const { id } = params;
     const body = await req.json();
 
