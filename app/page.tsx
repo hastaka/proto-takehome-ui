@@ -22,22 +22,10 @@ export default function Home() {
                     <h2 className="text-2xl text-[#00b4db] font-bold">Projects</h2>
                     <ProjectList />
                 </section>
-                <Accordion type="single" className="flex flex-col flex-1 h-full gap-2">
-                    <AccordionItem value="project-details" className="flex flex-col bg-background/80 rounded border p-4 gap-2">
-                        <AccordionTrigger className="text-2xl text-[#00b4db] font-bold">Project Details</AccordionTrigger>
-                        <AccordionContent>
-                            {projectId ? (
-                                <ProjectDetails projectId={projectId} key={projectId} />
-                            ) : (
-                                <span className="w-full h-full flex items-center justify-center">Select a project</span>
-                            )}
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="tasks" className="flex flex-col bg-background/80 rounded border gap-2 p-4">
-                        <AccordionTrigger className="text-2xl text-[#00b4db] font-bold">Tasks</AccordionTrigger>
-                        <AccordionContent>{projectId && <TaskList projectId={projectId} />}</AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <section className="flex flex-col flex-1 h-full bg-background/80 rounded border p-4 gap-2">
+                    <h2 className="text-2xl text-[#00b4db] font-bold">Tasks</h2>
+                    {projectId ? <TaskList projectId={projectId} /> : <div className='w-full h-full italic flex items-center justify-center'>Select a project</div>}
+                </section>
             </div>
         </main>
     );
