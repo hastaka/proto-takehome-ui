@@ -27,7 +27,9 @@ export default function RootLayout({
     return (
         <ClerkProvider>
             <html lang="en">
-                <body className={`${sans.variable} ${mono.variable} antialiased`}>{children}</body>
+                <body className={`${sans.variable} ${mono.variable} antialiased w-full h-screen bg-gradient-to-br from-[#00b4db] to-[#0083b0]`}>
+                    {children}
+                </body>
             </html>
         </ClerkProvider>
     );

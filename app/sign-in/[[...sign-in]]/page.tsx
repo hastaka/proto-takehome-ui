@@ -1,5 +1,7 @@
 import { SignIn } from '@clerk/nextjs';
 
 export default function Page() {
-    return <SignIn />;
+    return <section className='flex grow items-center justify-center'>
+      <SignIn />;
+      </section>
 }
