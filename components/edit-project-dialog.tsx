@@ -73,7 +73,7 @@ export function EditProjectDialog({ create, projectId }: EditProjectDialogProps)
                         <Button
                             type="button"
                             id="save"
-                            onClick={(e) => {
+                            onClick={() => {
                                 if (create) createProject.mutate({ name: name != '' ? name : 'Untitled project', description });
                                 if (projectId) updateProject.mutate({ projectId, changes: { name, description } });
                             }}

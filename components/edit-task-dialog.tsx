@@ -101,7 +101,7 @@ export function EditTaskDialog({ create, taskId, projectId }: EditTaskDialogProp
                         <Button
                             type="button"
                             id="save"
-                            onClick={(e) => {
+                            onClick={() => {
                                 if (create)
                                     createTask.mutate({
                                         project_id: projectId,
