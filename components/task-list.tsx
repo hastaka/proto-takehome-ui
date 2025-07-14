@@ -19,6 +19,9 @@ import { useDeleteTask } from '@/hooks/use-delete-task';
 import { cn } from '@/lib/utils';
 import { useUpdateTask } from '@/hooks/use-update-task';
 import { Task } from '@/lib/types';
+import { Dialog, DialogTrigger } from './ui/dialog';
+import { EditTaskDialog } from './edit-task-dialog';
+import { useState } from 'react';
 
 const badgeMap: Record<string, 'destructive' | 'default' | 'secondary'> = {
     todo: 'destructive',
@@ -61,6 +64,7 @@ export function TaskList({ projectId }: { projectId: string }) {
                                 ) : (
                                     <p className="text-sm text-muted-foreground italic">(no due date)</p>
                                 )}
+                                <Dialog>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Button variant="ghost" className="ml-auto" size="icon">
@@ -75,7 +79,9 @@ export function TaskList({ projectId }: { projectId: string }) {
                                             <DropdownMenuRadioItem value="done">Done</DropdownMenuRadioItem>
                                         </DropdownMenuRadioGroup>
                                         <DropdownMenuSeparator />
+                                        <DialogTrigger asChild>
                                         <DropdownMenuItem>Edit</DropdownMenuItem>
+                                        </DialogTrigger>
                                         <DropdownMenuItem
                                             variant="destructive"
                                             onClick={(e) => {
@@ -88,6 +94,8 @@ export function TaskList({ projectId }: { projectId: string }) {
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
+                                <EditTaskDialog taskId={t.id} projectId={projectId} />
+                                </Dialog>
                             </div>
                             <p className="text-xs font-mono text-muted-foreground">{t.id}</p>
                             <Separator />
