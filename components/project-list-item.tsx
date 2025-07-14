@@ -1,3 +1,5 @@
+// components/project-list-item.tsx
+
 import { Project } from '@/lib/types';
 import { Button } from './ui/button';
 import Link from 'next/link';
@@ -23,9 +25,9 @@ export default function ProjectListItem({ active, project }: { active: boolean; 
                 <div className="flex flex-col w-full items-start">
                     <div className="flex items-center gap-2 h-8 w-full">
                         <span className="text-lg">{project.name}</span>
-                    <span className="text-sm font-mono text-muted-foreground">
-                        {data?.filter((t) => t.status === 'done').length}/{data?.length}
-                    </span>
+                        <span className="text-sm font-mono text-muted-foreground">
+                            {data?.filter((t) => t.status === 'done').length}/{data?.length}
+                        </span>
                         <Dialog>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
@@ -53,12 +55,12 @@ export default function ProjectListItem({ active, project }: { active: boolean; 
                         </Dialog>
                     </div>
                     <p className="text-xs font-mono text-muted-foreground">{project.id}</p>
-                            <Separator className='my-2' />
-                            {project.description ? (
-                                <p className="text-sm p-1">{project.description}</p>
-                            ) : (
-                                <p className="text-sm text-muted-foreground italic">No description.</p>
-                            )}
+                    <Separator className="my-2" />
+                    {project.description ? (
+                        <p className="text-sm p-1">{project.description}</p>
+                    ) : (
+                        <p className="text-sm text-muted-foreground italic">No description.</p>
+                    )}
                 </div>
             </Link>
         </Button>

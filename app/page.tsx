@@ -1,10 +1,9 @@
+// app/page.tsx
+
 'use client';
 
-import { ProjectDetails } from '@/components/project-details';
 import { ProjectList } from '@/components/project-list';
 import { TaskList } from '@/components/task-list';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { cn } from '@/lib/utils';
 import { UserButton } from '@clerk/nextjs';
 import { useSearchParams } from 'next/navigation';
 
@@ -24,7 +23,11 @@ export default function Home() {
                 </section>
                 <section className="flex flex-col flex-1 h-full bg-background/80 rounded border p-4 gap-2">
                     <h2 className="text-2xl text-[#00b4db] font-bold">Tasks</h2>
-                    {projectId ? <TaskList projectId={projectId} /> : <div className='w-full h-full italic flex items-center justify-center'>Select a project</div>}
+                    {projectId ? (
+                        <TaskList projectId={projectId} />
+                    ) : (
+                        <div className="w-full h-full italic flex items-center justify-center">Select a project</div>
+                    )}
                 </section>
             </div>
         </main>

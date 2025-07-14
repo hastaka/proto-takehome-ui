@@ -1,3 +1,5 @@
+// components/edit-task-dialog.tsx
+
 import { Button } from '@/components/ui/button';
 import { DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
@@ -16,9 +18,9 @@ interface EditTaskDialogProps {
 }
 export function EditTaskDialog({ create, taskId, projectId }: EditTaskDialogProps) {
     const { data, isLoading, error } = useTask(taskId);
-    const [title, setTitle] = useState<string>("");
-    const [description, setDescription] = useState<string>("");
-    const [dueDate, setDueDate] = useState<string|undefined>("");
+    const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
+    const [dueDate, setDueDate] = useState<string | undefined>('');
     const updateTask = useUpdateTask(projectId);
     const createTask = useCreateTask(projectId);
 
@@ -100,7 +102,14 @@ export function EditTaskDialog({ create, taskId, projectId }: EditTaskDialogProp
                             type="button"
                             id="save"
                             onClick={(e) => {
-                                if (create) createTask.mutate({ project_id: projectId, title:title != '' ? title : 'Untitled task', description, due_date: dueDate != '' ? dueDate : undefined, status: 'todo' });
+                                if (create)
+                                    createTask.mutate({
+                                        project_id: projectId,
+                                        title: title != '' ? title : 'Untitled task',
+                                        description,
+                                        due_date: dueDate != '' ? dueDate : undefined,
+                                        status: 'todo',
+                                    });
                                 if (taskId) updateTask.mutate({ taskId, changes: { title, description, due_date: dueDate ?? '' } });
                             }}
                         >

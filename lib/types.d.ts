@@ -1,3 +1,5 @@
+// lib/types.d.ts
+
 import type { components } from './api-schema';
 
 export type CreateProjectDTO = components['schemas']['CreateProjectDTO'];

@@ -1,10 +1,12 @@
+// components/task-list.tsx
+
 'use client';
 import { Badge } from './ui/badge';
 import { ScrollArea } from './ui/scroll-area';
 import useProjectTasks from '@/hooks/use-project-tasks';
 import { Separator } from './ui/separator';
 import { Button } from './ui/button';
-import { AlertOctagon, Clock, Loader, Loader2, MoreHorizontal } from 'lucide-react';
+import { AlertOctagon, Loader, MoreHorizontal } from 'lucide-react';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -21,7 +23,6 @@ import { useUpdateTask } from '@/hooks/use-update-task';
 import { Task } from '@/lib/types';
 import { Dialog, DialogTrigger } from './ui/dialog';
 import { EditTaskDialog } from './edit-task-dialog';
-import { useState } from 'react';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 
 const badgeMap: Record<string, 'destructive' | 'default' | 'secondary'> = {

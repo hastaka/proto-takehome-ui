@@ -1,8 +1,9 @@
+// app/layout.tsx
+
 import type { Metadata } from 'next';
 import { Manrope, Space_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
-import { ClerkProvider } from '@clerk/nextjs';
 
 const sans = Manrope({
     variable: '--font-sans',

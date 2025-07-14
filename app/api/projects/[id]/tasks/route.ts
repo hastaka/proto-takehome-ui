@@ -1,10 +1,12 @@
+// app/api/projects/[id]/tasks/route.ts
+
 import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
     const { id } = params;
     const res = await fetch(`https://proto-takehome.onrender.com/projects/${id}/tasks`);
-    if (!res.ok) throw new Error('Failed to fetch');
     const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
     return new Response(JSON.stringify(data), {
         headers: { 'Content-Type': 'application/json' },
     });

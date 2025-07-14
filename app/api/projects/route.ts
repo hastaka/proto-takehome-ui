@@ -1,3 +1,5 @@
+// app/api/projects/route.ts
+
 export async function GET() {
     const res = await fetch('https://proto-takehome.onrender.com/projects');
     if (!res.ok) throw new Error('Failed to fetch');

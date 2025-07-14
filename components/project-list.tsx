@@ -1,3 +1,5 @@
+// components/project-list.tsx
+
 'use client';
 import useProjects from '@/hooks/use-projects';
 import { ScrollArea } from './ui/scroll-area';
@@ -42,9 +44,11 @@ export function ProjectList() {
         <div className="flex-1 overflow-hidden">
             <ScrollArea className="h-full pr-2">
                 <div className="flex flex-col gap-2">
-                    {data.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()).map((p, index) => {
-                        return <ProjectListItem key={index} active={p.id === projectId} project={p} />;
-                    })}
+                    {data
+                        .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+                        .map((p, index) => {
+                            return <ProjectListItem key={index} active={p.id === projectId} project={p} />;
+                        })}
                     <Dialog>
                         <DialogTrigger asChild>
                             <Button className="w-full h-16 border-dashed italic" variant="outline">

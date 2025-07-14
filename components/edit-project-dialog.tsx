@@ -1,3 +1,5 @@
+// components/edit-project-dialog.tsx
+
 import { Button } from '@/components/ui/button';
 import { DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
