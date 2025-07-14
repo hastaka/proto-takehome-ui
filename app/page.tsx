@@ -11,7 +11,7 @@ export default function Home() {
     const searchParams = useSearchParams();
     const projectId = searchParams.get('p');
     return (
-        <main className="h-full flex flex-col items-center justify-center gap-2">
+        <main className="h-full flex flex-col items-center justify-center gap-2 p-8 sm:p-20">
             <div className="flex justify-between items-center w-full p-4 bg-background/80 rounded border">
                 <h1 className="text-4xl text-foreground font-bold">Proto Takehome UI</h1>
                 <UserButton />

@@ -15,7 +15,7 @@ export default function ProjectListItem({ active, project }: { active:boolean; p
                 <div className="flex flex-col w-full items-start">
                     <div className="flex items-center justify-between h-8 w-full">
                         <span className="text-lg">{project.name}</span>
-                        <span>{data?.filter((t) => t.status === 'done').length}/{data?.length}</span>
+                        <span className='text-sm font-mono text-muted-foreground'>{data?.filter((t) => t.status === 'done').length}/{data?.length}</span>
                     </div>
                     <span className="text-sm min-h-4 italic">{project.description}</span>
                 </div>

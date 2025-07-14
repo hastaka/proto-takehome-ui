@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${sans.variable} ${mono.variable} antialiased w-full h-screen bg-gradient-to-br from-[#00b4db] to-[#0083b0] p-8 sm:p-20`}>
+            <body className={`${sans.variable} ${mono.variable} antialiased w-full h-screen bg-gradient-to-br from-[#00b4db] to-[#0083b0]`}>
                 <Providers>{children}</Providers>
             </body>
         </html>
