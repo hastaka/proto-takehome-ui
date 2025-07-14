@@ -3,7 +3,6 @@
 'use client';
 import useProjects from '@/hooks/use-projects';
 import { ScrollArea } from './ui/scroll-area';
-import { useSearchParams } from 'next/navigation';
 import ProjectListItem from './project-list-item';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
 import { AlertOctagon, Loader } from 'lucide-react';
@@ -11,10 +10,8 @@ import { Dialog, DialogTrigger } from './ui/dialog';
 import { Button } from './ui/button';
 import { EditProjectDialog } from './edit-project-dialog';
 
-export function ProjectList() {
+export function ProjectList({currentProjectId}: {currentProjectId?: string}) {
     const { data, isLoading, error } = useProjects();
-    const searchParams = useSearchParams();
-    const projectId = searchParams.get('p');
 
     if (isLoading || !data)
         return (
@@ -47,7 +44,7 @@ export function ProjectList() {
                     {data
                         .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
                         .map((p, index) => {
-                            return <ProjectListItem key={index} active={p.id === projectId} project={p} />;
+                            return <ProjectListItem key={index} active={p.id === currentProjectId} project={p} />;
                         })}
                     <Dialog>
                         <DialogTrigger asChild>
